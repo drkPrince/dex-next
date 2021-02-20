@@ -1,65 +1,49 @@
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import axios from 'axios'
+import Link from 'next/link'
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+export default function Home({data}) {
+    console.log(data)
+    return (
+        <div>
+            <Head>
+                <title>Pokedex</title>
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+            <main className='px-4 py-12'>
+                <h1 className='text-5xl text-green-500 text-center'>Pokedex - Gotta Catch em all!</h1>
+                <div className='flex flex-wrap w-full justify-center mt-8'>
+                    {data.results.map(pokemon => {
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+                        const poke_id = pokemon.url.split('/')[6]
+                        const padded_poke_id = poke_id.padStart(3, '0')
+                        return (
+                            <Link href={`/pokemon/${poke_id}`} key={poke_id}>
+                                <div className='mr-3 mb-4 bg-gray-200 p-3 rounded text-center cursor-pointer'>
+                                    <div className='w-32'>
+                                        <img src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/thumbnails-compressed/${padded_poke_id}.png`} alt="pokemon-img" loading='lazy'/>
+                                    </div>
+                                    <h3 className='capitalize mt-2'>{pokemon.name}</h3>
+                                </div>
+                            </Link>
+                        )}
+                        )
+                    }
+                </div>
+            </main>
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  )
+    )
 }
+
+
+
+export async function getStaticProps(context) {
+    const pokeData = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=150')
+    return {
+        props: {data: pokeData.data}, // will be passed to the page component as props
+    }
+}
+
+
+//<img src={require(`../stuff/thumbnails-compressed/${padded_poke_id}.png`).default} alt="pokemon-img" loading='lazy'/>
