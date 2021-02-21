@@ -4,6 +4,7 @@ import {useState, useEffect} from 'react'
 
 import Basics from '../../components/Basics'
 import Evolution from '../../components/Evolution'
+import Moves from '../../components/Moves'
 
 
 const PokeDetails = () => {
@@ -38,6 +39,7 @@ const PokeDetails = () => {
 					<div className='text-gray-800 px-12'>
 						<Basics id={id} name={pokeInfo.name} baseColor={baseColor} isLegendary={speciesInfo.is_legendary} types={pokeInfo.types} abilities={pokeInfo.abilities} genus={speciesInfo.genera[7].genus} weight={pokeInfo.weight} height={pokeInfo.height} fte={speciesInfo.flavor_text_entries} varieties={speciesInfo.varieties}/>
 						<Evolution chainURL={speciesInfo.evolution_chain.url} baseColor={baseColor} pokeID={id}/>
+						<Moves moves={pokeInfo.moves} baseColor={baseColor} />
 					</div>
 				</div>
 			: <div className='animate-pulse h-2/12 w-2/12 flex justify-center items-center w-full mt-64'>
