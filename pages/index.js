@@ -1,9 +1,9 @@
 import Head from 'next/head'
 import axios from 'axios'
 import Link from 'next/link'
+import {data} from '../utils/allPoke'
 
-export default function Home({data}) {
-    console.log(data)
+export default function Home() {
     return (
         <div>
             <Head>
@@ -14,7 +14,7 @@ export default function Home({data}) {
             <main className='px-4 py-12'>
                 <h1 className='text-5xl text-green-500 text-center'>Pokedex - Gotta Catch em all!</h1>
                 <div className='flex flex-wrap w-full justify-center mt-8'>
-                    {data.results.map(pokemon => {
+                    {data.map(pokemon => {
 
                         const poke_id = pokemon.url.split('/')[6]
                         const padded_poke_id = poke_id.padStart(3, '0')
@@ -37,13 +37,6 @@ export default function Home({data}) {
 }
 
 
-
-export async function getStaticProps(context) {
-    const pokeData = await axios.get('https://pokeapi.co/api/v2/pokemon/?limit=150')
-    return {
-        props: {data: pokeData.data}, // will be passed to the page component as props
-    }
-}
 
 
 //<img src={require(`../stuff/thumbnails-compressed/${padded_poke_id}.png`).default} alt="pokemon-img" loading='lazy'/>
