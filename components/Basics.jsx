@@ -98,15 +98,17 @@ const Basics = ({id, name, weight, height, genus, types, abilities, fte, varieti
 							</div>
 							<div className="divTableRow flex mb-4">
 								<div className="divTableCell w-20 text-gray-600 text-right mr-6">Type</div>
-								<div className=" divTableCell ">
-									{pokeTypes.map(type => 
-										<div className={`flex items-center capitalize mb-2 ${type} justify-center text-white rounded px-1`} key={type}>
-											<span className={`icon mr-2`}>
-												<img src={`/icons/${type}.svg`} alt='type'/>
-											</span>
-											<span className=''>{type}</span>
-								    	</div>
-									)}
+								<div className=" divTableCell w-2/3">
+									<div className='flex flex-wrap'>
+										{pokeTypes.map(type => 
+											<div className={`flex items-center capitalize mb-2 mr-2 ${type} justify-center text-white rounded px-1`} key={type}>
+												<span className={`icon mr-2`}>
+													<img src={`/icons/${type}.svg`} alt='type'/>
+												</span>
+												<span className=''>{type}</span>
+											</div>
+										)}
+									</div>
 								</div>
 							</div>
 							<div className="divTableRow flex mb-4">
@@ -130,7 +132,7 @@ const Basics = ({id, name, weight, height, genus, types, abilities, fte, varieti
 					</div>
 				</div>
 
-				<div className='w-full lg:w-4/12 h-full fade-in mt-8 lg:mt-0 px-16 lg:px-0'>
+				<div className='w-full lg:w-4/12 h-full fade-in mt-8 lg:mt-0 px-4 lg:px-0'>
 					<img src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${paddedID}${varietyToBeShown}.png`} alt="mainImage" />
 				</div>
 
