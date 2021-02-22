@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import {useState, useEffect} from 'react'
 import axios from 'axios'
 import Link from 'next/link'
 
@@ -38,21 +38,22 @@ const Evolution = ({chainURL, baseColor, pokeID}) =>
 		} while (chainInfo && chainInfo.hasOwnProperty('evolves_to'));
 
 		return (
-				<div className='flex justify-around px-8 items-center'>
+				<div className='md:px-8 md:mt-0 flex justify-around items-center flex-wrap'>
 					{evolutionChainPrepared.map(pokemon => {
 						const id = pokemon.url.split('/')[6]
 						const p_id = id.padStart(3, '0')
 						return (
-							<div className='flex items-center justify-center shadow-sm hover:shadow-2xl p-6 transition-shadow duration-500 rounded-md' key={id}>
+							<div className='mt-8 md:mt-0 flex items-center justify-center bg-white shadow-sm cursor-pointer hover:shadow-2xl p-8 transition-shadow duration-500 rounded-md' key={id}>
 								<Link href={`/pokemon/${id}`}>
 									<div>
 										<img src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/thumbnails-compressed/${p_id}.png`} alt="evo-images" />
 										<h1 className={`${baseColor} px-2 py-1 mt-3 text-gray-100 text-center rounded-md tracking-wide`}>{pokemon.species_name}</h1>
 									</div>
 								</Link>
-							</div>)})//map end
+							</div>)
+						})
 					}
-				</div>)//return end
+				</div>)
 	}
 
 
@@ -74,19 +75,19 @@ const Evolution = ({chainURL, baseColor, pokeID}) =>
 				const p_id = id.padStart(3, '0')
 				return (
 					<div className='flex justify-between flex-col'>
-						<div className='flex justify-center '>
-							<Link href={`/pokemon/${id}`} className='shadow-sm hover:shadow-2xl p-6 transition-shadow duration-500 rounded-md'>
-								<div>
+						<div className='flex justify-center my-6'>
+							<Link href={`/pokemon/${id}`} >
+								<div className='bg-white shadow-sm cursor-pointer hover:shadow-2xl p-8 transition-shadow duration-500 rounded-md'>
 									<img  src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/thumbnails-compressed/${p_id}.png`} alt="evo-images" />
 									<h1 className={`${baseColor} px-2 py-1 mt-3 text-gray-100 text-center rounded-md tracking-wide`}>{chainInfo.species.name}</h1>
 								</div>
 							</Link>
 						</div>
-						<div className='flex justify-between flex-wrap mt-4'>{chainInfo.evolves_to.map(e => {
+						<div className='flex justify-center flex-wrap mt-4'>{chainInfo.evolves_to.map(e => {
 							const id = e.species.url.split('/')[6]
 							const p_id = id.padStart(3, '0')
 							return (
-								<div className='shadow-sm hover:shadow-2xl p-6 transition-shadow duration-500 rounded-md' key={id}>
+								<div className='bg-white shadow-sm cursor-pointer hover:shadow-2xl p-4 mx-2 transition-shadow duration-500 rounded-md' key={id}>
 									<Link href={`/pokemon/${id}`}>
 										<div>
 											<img  src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/thumbnails-compressed/${p_id}.png`} alt="evo-images" />
@@ -107,7 +108,7 @@ const Evolution = ({chainURL, baseColor, pokeID}) =>
 				return (
 					<div className='flex justify-between flex-col'>
 						<div className='flex justify-center '>
-							<Link href={`/pokemon/${id}`} className='shadow-sm hover:shadow-2xl p-6 transition-shadow duration-500 rounded-md'>
+							<Link href={`/pokemon/${id}`} className='bg-white shadow-sm cursor-pointer hover:shadow-2xl p-8 transition-shadow duration-500 rounded-md'>
 								<div>
 									<img  src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/thumbnails-compressed/${p_id}.png`} alt="evo-images" />
 									<h1 className={`${baseColor} px-2 py-1 mt-3 text-gray-100 text-center rounded-md tracking-wide`}>{chainInfo.species.name}</h1>
@@ -118,7 +119,7 @@ const Evolution = ({chainURL, baseColor, pokeID}) =>
 							const id = e.species.url.split('/')[6]
 							const p_id = id.padStart(3, '0')
 							return (
-								<div className='shadow-sm hover:shadow-2xl p-6 transition-shadow duration-500 rounded-md' key={id}>
+								<div className='bg-white shadow-sm cursor-pointer hover:shadow-2xl p-8 transition-shadow duration-500 rounded-md' key={id}>
 									<Link href={`/pokemon/${id}`}>
 										<div>
 											<img  src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/thumbnails-compressed/${p_id}.png`} alt="evo-images" />
@@ -145,24 +146,23 @@ const Evolution = ({chainURL, baseColor, pokeID}) =>
 				const p_id = id.padStart(3, '0')
 
 				return (
-					<div className='flex justify-around items-center'>
-						<Link href={`/pokemon/${id}`} className='shadow-sm hover:shadow-2xl p-6 transition-shadow duration-500 rounded-md'>
-							<div>
+					<div className='flex justify-around items-center flex-col md:flex-row'>
+						<Link href={`/pokemon/${id}`}>
+							<div className='bg-white shadow-sm cursor-pointer hover:shadow-2xl p-8 transition-shadow duration-500 rounded-md'>
 								<img  src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/thumbnails-compressed/${p_id}.png`} alt="evo-images" />
-								
 								<h1 className={`${baseColor} px-2 py-1 mt-3 text-gray-100 text-center rounded-md tracking-wide`}>{chainInfo.species.name}</h1>
 							</div>
 						</Link>
-						<Link href={`/${secondLayer.url.split('/')[6]}`} className='shadow-sm hover:shadow-2xl p-6 transition-shadow duration-500 rounded-md'>
-							<div>
+						<Link href={`/pokemon/${secondLayer.url.split('/')[6]}`} >
+							<div className='bg-white shadow-sm cursor-pointer hover:shadow-2xl p-8 transition-shadow duration-500 rounded-md mt-4 md:mt-0'>
 								<img  src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/thumbnails-compressed/${secondLayer.url.split('/')[6].padStart(3, '0')}.png`} alt="evo-images" />
 								<h1 className={`${baseColor} px-2 py-1 mt-3 text-gray-100 text-center rounded-md tracking-wide`}>{secondLayer.name}</h1>
 							</div>
 						</Link>
 						<div>
 							{thirdLayer.map(e => 
-									<Link href={`/${e.species.url.split('/')[6]}`} className='shadow-sm hover:shadow-2xl p-6 transition-shadow duration-500 rounded-md' key={e.species.name}>
-										<div>
+									<Link href={`/pokemon/${e.species.url.split('/')[6]}`} key={e.species.name}>
+										<div className='bg-white shadow-sm cursor-pointer hover:shadow-2xl p-8 transition-shadow duration-500 rounded-md m-6'>
 											<img  src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/thumbnails-compressed/${e.species.url.split('/')[6].padStart(3, '0')}.png`} alt="evo-images" />
 											<h1 className={`${baseColor} px-2 py-1 mt-3 text-gray-100 text-center rounded-md tracking-wide`}>{e.species.name}</h1>
 										</div>
@@ -182,9 +182,9 @@ const Evolution = ({chainURL, baseColor, pokeID}) =>
 	}
 
 	return (
-		<div className='my-16 capitalize'>
+		<div className='my-16 capitalize w-full overflow-hidden'>
 			<div className='flex justify-center items-center my-3'>
-				<h1 className={`${baseColor} text-gray-100 px-2 py-1 rounded-md text-2xl`}>Evolution Chain</h1>
+				<h1 className={`${baseColor} text-gray-100 px-2 py-1 rounded-md text-3xl`}>Evolution Chain</h1>
 			</div>
 			{chainInfo && show()}
 		</div>

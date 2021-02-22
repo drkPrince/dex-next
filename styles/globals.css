@@ -1,3 +1,42 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+@font-face{
+	font-family: 'gb';
+	src: url('/Gilroy-ExtraBold.otf');
+	font-display: swap;
+}
+
+@font-face{
+	font-family: 'gn';
+	src: url('/Gilroy-Light.otf');
+	font-display: swap;
+}
+
+.gn{
+	font-family: gn, "Helvetica", "Arial", sans-serif;
+}
+
+
+body{
+	font-family: gb, "Helvetica", "Arial", sans-serif;
+	background-color: #fffdff;
+}
+
+
+.fade-in {
+	animation: fadeIn ease 5s;
+}
+
+
+@keyframes fadeIn{
+	0% {
+		opacity:0;
+	}
+	100% {
+		opacity:1;
+	}
+}
+

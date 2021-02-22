@@ -3,10 +3,20 @@
     border-radius: 100%;
     height: 30px;
     width: 30px;
-    margin:auto;
     transition: 200ms all;
     margin-right: 5px;
 }
+
+
+
+.selected{
+    color: white;
+    filter: saturate(200%);
+    transition: all;
+    transition-duration: 1000;
+}
+
+
 
 .icon:hover{
     filter: saturate(200%);

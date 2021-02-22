@@ -1,5 +1,8 @@
 import axios from 'axios'
 import {useState, useEffect} from 'react'
+import { Dialog, DialogOverlay, DialogContent } from "@reach/dialog";
+import "@reach/dialog/styles.css";
+import Loader from './Loader'
 
 
 const Basics = ({id, name, weight, height, genus, types, abilities, fte, varieties, baseColor, isLegendary}) => 
@@ -56,27 +59,29 @@ const Basics = ({id, name, weight, height, genus, types, abilities, fte, varieti
 			setAbility(null)
 			setModal(false)
 		}
+
 		return (
-			<div className='fixed bg-opacity-50 bg-black flex justify-center items-center h-screen w-screen top-0 left-0 backdrop'>
-				<div className='bg-white w-1/2 shadow-2xl text-center py-8 px-12 rounded'>
+			<Dialog isOpen={modal} onDismiss={closeModal} aria-label='Ability Information' >
+				<div className='bg-white w-full leading-relaxed text-center md:py-8 md:px-12 rounded'>
 					{abilityDesc ?
 						<div>
 							<h1 className='capitalize text-2xl text-gray-800'>{abilityDesc.name}</h1>
-							<p className='flex-1 mt-6 text-gray-700'>{abilityDesc.desc}</p>
-							<button className='bg-red-500 border-2 border-red-500 rounded px-2 py-1 text-white mt-6 hover:bg-red-600' onClick={closeModal}>Close</button>
+							<p className='flex-1 my-6 text-gray-700'>{abilityDesc.desc}</p>
+							<span className='bg-red-500 rounded px-3 py-2 text-white hover:bg-red-600 cursor-pointer' onClick={closeModal}>Close</span>
 						</div>
-					: <h1 className='w-full h-full'>Loading</h1>}
+					: <Loader />}
 				</div>
-			</div>				
+      		</Dialog>
 			)
 	}
 
-	return (
-		<div className='flex flex-col items-center py-5 px-4'>
-			{modal && <Modal />}
-			<div className='flex justify-center items-center w-full mt-8'> 
 
-				<div className='w-4/12'>
+	return (
+		<div className='flex flex-col items-center py-5 px-4 h-full w-full overflow-hidden'>
+			<Modal />
+			<div className='flex justify-center items-center w-full mt-8 flex-col lg:flex-row h-full'> 
+
+				<div className='w-3/4 lg:w-4/12 h-full flex justify-center lg:block'>
 					<div className="divTable text-gray-700 gl">
 						<div className="divTableBody">
 							<div className="divTableRow flex mb-5">
@@ -93,10 +98,13 @@ const Basics = ({id, name, weight, height, genus, types, abilities, fte, varieti
 							</div>
 							<div className="divTableRow flex mb-4">
 								<div className="divTableCell w-20 text-gray-600 text-right mr-6">Type</div>
-								<div className=" w-2/3 divTableCell">
+								<div className=" divTableCell ">
 									{pokeTypes.map(type => 
-										<div className={`icon ${type}`} key={type}>
-											<img src={`/icons/${type}.svg`} alt='type'/>
+										<div className={`flex items-center capitalize mb-2 ${type} justify-center text-white rounded px-1`} key={type}>
+											<span className={`icon mr-2`}>
+												<img src={`/icons/${type}.svg`} alt='type'/>
+											</span>
+											<span className=''>{type}</span>
 								    	</div>
 									)}
 								</div>
@@ -104,7 +112,7 @@ const Basics = ({id, name, weight, height, genus, types, abilities, fte, varieti
 							<div className="divTableRow flex mb-4">
 								<div className="divTableCell w-20 text-gray-600 text-right mr-6">Ability</div>
 								<div className=" w-2/3 divTableCell flex justify-start flex-wrap">
-									{abilities.map(x => <h1 onClick={(e)=>bringAbilityDesc(e, x.ability.url)} className={`capitalize mr-2 text-gray-100 px-2 rounded cursor-pointer mb-3 ${baseColor}`} key={x.ability.name}>{x.ability.name}</h1>)}
+									{abilities.map(x => <h1 onClick={(e)=>bringAbilityDesc(e, x.ability.url)} className={`hover:scale-110 transform transition-transform capitalize mr-2 text-gray-100 px-2 rounded cursor-pointer mb-3 ${baseColor}`} key={x.ability.name}>{x.ability.name}</h1>)}
 								</div>
 							</div>
 							<div className="divTableRow flex">
@@ -113,7 +121,7 @@ const Basics = ({id, name, weight, height, genus, types, abilities, fte, varieti
 									<div className='flex flex-wrap justify-start'>
 										{varieties.map(v => {
 											const isDefault = v.is_default
-											return <h2 className={`${baseColor} capitalize rounded px-2  inline-block mr-4 text-gray-100 cursor-pointer mb-3`} key={v.pokemon.name} onClick={(e) => changeForm(e, isDefault)}>{v.pokemon.name}</h2>
+											return <h2 className={`${baseColor} hover:scale-110 transform transition-transform capitalize rounded px-2  inline-block mr-4 text-gray-100 cursor-pointer mb-3`} key={v.pokemon.name} onClick={(e) => changeForm(e, isDefault)}>{v.pokemon.name}</h2>
 										})}
 									</div>
 								</div>
@@ -122,15 +130,15 @@ const Basics = ({id, name, weight, height, genus, types, abilities, fte, varieti
 					</div>
 				</div>
 
-				<div className='w-4/12 fade-in'>
+				<div className='w-full lg:w-4/12 h-full fade-in mt-8 lg:mt-0 px-16 lg:px-0'>
 					<img src={`https://raw.githubusercontent.com/HybridShivam/Pokemon/master/assets/images/${paddedID}${varietyToBeShown}.png`} alt="mainImage" />
 				</div>
 
-				<div className='w-4/12 pl-12 text-right leading-relaxed'>
+				<div className='w-full lg:w-4/12 h-full lg:pl-12 text-center mt-8 lg:mt-0 lg:text-right leading-relaxed'>
 					{isLegendary ? <div className='rounded-full bg-purple-500 px-3 py-1 inline-block text-gray-100 text-sm shadow-xl'>Legendary</div> : null}
 					<div className="mt-3">
-						<h1 className='text-lg text-gray-600'>{genus}</h1>
-						<h1 className='text-gray-500'>{extractFTE()}</h1>
+						<h1 className='text-xl text-gray-600'>{genus}</h1>
+						<h1 className='text-md text-gray-500 gn font-bold tracking-wide'>{extractFTE()}</h1>
 					</div>
 				</div>
 
