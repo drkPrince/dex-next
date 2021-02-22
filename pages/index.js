@@ -73,9 +73,10 @@ export default function Home() {
                         )
                     }
                 </div>
-                <div className="flex justify-center px-12 text-center my-20">
-                    <h3 className='text-xl text-gray-500'>Disclaimer - Pokemon and Pokédex are registered trademarks of their respective owners. No infringement intended. This is just a fun little side project. Thanks to PokeAPI.</h3>
-                </div>
+                <footer className=" px-12 text-left mt-20 text-xs md:text-sm gn font-bold tracking-wide text-gray-600">
+                    <h3 className=''>Disclaimer - Pokemon and Pokédex are registered trademarks of their respective owners. No infringement intended. This is just a fun little side project.</h3>
+                    <h3 className='mt-4'>Made with NextJS, TailwindCSS and PokeAPI. Deployed on Vercel.</h3>
+                </footer>
             </main>
         </div>
     )
