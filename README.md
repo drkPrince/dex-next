@@ -1,20 +1,41 @@
-https://img.shields.io/badge/NextJS-10.0.7-brightgreen
 
-https://img.shields.io/badge/TailwindCSS-10.0.7-blueviolet
+<div align="center">
+	<img src="https://github.com/drkPrince/dex-next/blob/main/public/pokedex.png?raw=true" width='200'/>
+</div>
 
-[Check out the Website](http://nextdex.vercel.app)
+<p align='center'>
+	![Website](https://img.shields.io/badge/Website-Up-green)
+	![Next](https://img.shields.io/badge/NextJS-10.0.7-blue)
+	![TailwindCSS](https://img.shields.io/badge/TailwindCSS-2.0.3-blueviolet)
+</p>
 
-![Website](https://img.shields.io/badge/Website-Up-green)
-![Next](https://img.shields.io/badge/NextJS-10.0.7-blue)
-![TailwindCSS](https://img.shields.io/badge/TailwindCSS-10.0.7-blueviolet)
 
-
-<img src="https://github.com/drkPrince/dex-next/blob/main/public/pokedex.png?raw=true" width='300'/>
+# Pokedex
 
 This is a Pokedex app built using [Next.js](https://nextjs.org/) and [TailwindCSS](http://tailwindcss.com).
 
+[Check out the Website](http://nextdex.vercel.app)
+Leave a 🌟 if you liked it. That would make my day 😊.
+
 
 ## Screenshots
+
+<div>
+	<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/dex.png" />
+	<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/charizard.png" />	
+	<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/leafeon.png" />
+	<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/greninja.png" />
+	<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/mobile-dex.png" width='500' />
+	<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/oshawatt.png" width='500' />
+</div>
+
+## Features
+
+1. Data of 807 species and different forms.
+2. Pokemon Moves.
+3. Evolution Data.
+4. Abilities.
+
 
 ## Getting Started
 
@@ -25,7 +46,8 @@ This is a Pokedex app built using [Next.js](https://nextjs.org/) and [TailwindCS
 
 ## A word of Thanks
 
-- [PokeAPI](https://github.com/PokeAPI/pokeapi) for providing Pokemon Data
+- [PokeAPI](https://github.com/PokeAPI/pokeapi) for providing Pokemon Data.
 - [Duiker101](https://github.com/duiker101/pokemon-type-svg-icons) for making beautiful pokemon type icons.
+- [Shivam](https://github.com/HybridShivam/Pokemon) for collecting the images.
 
 
