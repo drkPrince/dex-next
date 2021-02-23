@@ -14,17 +14,16 @@
 
 This is a Pokedex app built using [Next.js](https://nextjs.org/) and [TailwindCSS](http://tailwindcss.com).
 
-[Check out the Website](http://nextdex.vercel.app)
+[Check out the Website](http://nextdex.vercel.app).
 Leave a 🌟 if you liked it. That would make my day 😊.
-
 
 ## Screenshots
 <img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/dex.png" />
 <img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/charizard.png" />	
 <img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/leafeon.png" />
 <img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/greninja.png" />
-<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/mobile-dex.png" width='150' />
-<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/oshawatt.png" width='150' />
+<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/mobile-dex.png" width='200' />
+<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/oshawatt.png" width='200' />
 
 ## Features
 
@@ -46,5 +45,9 @@ Leave a 🌟 if you liked it. That would make my day 😊.
 - [PokeAPI](https://github.com/PokeAPI/pokeapi) for providing Pokemon Data.
 - [Duiker101](https://github.com/duiker101/pokemon-type-svg-icons) for making beautiful pokemon type icons.
 - [Shivam](https://github.com/HybridShivam/Pokemon) for collecting the images.
+
+## Copyright
+
+Pokémon and Pokédex are registered trademarks of their respective owners. No copyright infringement intended. This is just a fun little side project made by a PokeFan.
 
 
