@@ -35,7 +35,7 @@ Leave a 🌟 if you liked it. That would make my day 😊.
 
 ## Getting Started
 
-1. First install all the dev dependencies with `yarn install` or `npm install`.
+1. First install all the dependencies with `yarn install` or `npm install`.
 2. Then, run the development server using `yarn dev` or `npm run dev`.
 3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
