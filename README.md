@@ -3,11 +3,11 @@
 	<img src="https://github.com/drkPrince/dex-next/blob/main/public/pokedex.png?raw=true" width='200'/>
 </div>
 
-<p align='center'>
-	![Website](https://img.shields.io/badge/Website-Up-green)
-	![Next](https://img.shields.io/badge/NextJS-10.0.7-blue)
-	![TailwindCSS](https://img.shields.io/badge/TailwindCSS-2.0.3-blueviolet)
-</p>
+
+![Website](https://img.shields.io/badge/Website-Up-green)
+![Next](https://img.shields.io/badge/NextJS-10.0.7-blue)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-2.0.3-blueviolet)
+
 
 
 # Pokedex
@@ -19,15 +19,12 @@ Leave a 🌟 if you liked it. That would make my day 😊.
 
 
 ## Screenshots
-
-<div>
-	<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/dex.png" />
-	<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/charizard.png" />	
-	<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/leafeon.png" />
-	<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/greninja.png" />
-	<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/mobile-dex.png" width='500' />
-	<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/oshawatt.png" width='500' />
-</div>
+<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/dex.png" />
+<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/charizard.png" />	
+<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/leafeon.png" />
+<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/greninja.png" />
+<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/mobile-dex.png" width='150' />
+<img src="https://github.com/drkPrince/dex-next/blob/main/screenshots/oshawatt.png" width='150' />
 
 ## Features
 
