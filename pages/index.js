@@ -37,9 +37,9 @@ export default function Home() {
                 </div>
                 <div className='mt-12 block sm:flex sm:justify-end sm:items-center sm:mr-12'>
                     {(term || pokemons.length!==807) && <div onClick={clear} className='cursor-pointer py-1 bg-green-500 text-white px-2 rounded mb-4 sm:mb-0 text-center'>Clear filters</div>}
-                    <div className='flex justify-between items-center rounded pl-1 pr-3 mx-4 py-1'>
+                    <div className='flex justify-between items-center rounded pl-1 pr-3 mx-4 py-1 border-b border-gray-600'>
                         <form onSubmit={search}>
-                            <input type="text" value={term} onChange={(e)=>setTerm(e.target.value)} className=' bg-transparent outline-none border-b border-gray-600 focus:border-red-700 focus:shadow-2xl focus:border-4 mr-1' />
+                            <input type="text" value={term} onChange={(e)=>setTerm(e.target.value)} className=' bg-transparent outline-none' />
                         </form>
                         <div onClick={search}>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="20"><path fill="none" d="M0 0h24v24H0z"/><path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0 1 11 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 0 1-1.969 5.617zm-2.006-.742A6.977 6.977 0 0 0 18 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 0 0 4.875-1.975l.15-.15z" fill="rgba(0,0,0,0.92)"/></svg>

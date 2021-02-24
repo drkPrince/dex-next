@@ -42,7 +42,7 @@ const PokeDetails = () => {
 			{pokeInfo && speciesInfo ? 
 				<div className=''>
 					<div className={`${baseColor} w-full flex justify-center items-center`}>
-						<div className='absolute left-20'>
+						<div className='absolute left-8 sm:left-10 md:left-20'>
 							<Link href='/' passHref>
 								<BackArrow width={28} />
 							</Link>
