@@ -9,6 +9,7 @@ import Evolution from '../../components/Evolution'
 import Stats from '../../components/Stats'
 import Moves from '../../components/Moves'
 import Loader from '../../components/Loader'
+import BackArrow from '../../components/BackArrow'
 
 const PokeDetails = () => {
 	const router = useRouter()
@@ -41,6 +42,11 @@ const PokeDetails = () => {
 			{pokeInfo && speciesInfo ? 
 				<div className=''>
 					<div className={`${baseColor} w-full flex justify-center items-center`}>
+						<div className='absolute left-20'>
+							<Link href='/' passHref>
+								<BackArrow width={28} />
+							</Link>
+						</div>
 						<h1 className={`gb capitalize text-gray-100 py-2 rounded-md text-4xl`}>{pokeInfo.name}</h1>
 					</div>
 					<div className='text-gray-800 px-12 pb-20'>
@@ -48,9 +54,14 @@ const PokeDetails = () => {
 						<Evolution chainURL={speciesInfo.evolution_chain.url} baseColor={baseColor} pokeID={id}/>
 						<Stats speciesInfo={speciesInfo} baseColor={baseColor} />
 						<Moves moves={pokeInfo.moves} baseColor={baseColor} />
-						<span className={`${baseColor} px-4 py-2 rounded text-white text-center`} >
-							<Link href='/'>Back to Home.</Link>
-						</span>
+						<div className={`${baseColor} px-4 py-2 rounded text-white text-center inline-flex items-center`} >
+							<span className='mr-2'>
+								<BackArrow  />
+							</span>
+							<span>
+								<Link href='/'>Back to Home.</Link>
+							</span>
+						</div>
 					</div>
 				</div>
 			: 
