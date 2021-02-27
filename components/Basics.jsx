@@ -62,11 +62,11 @@ const Basics = ({id, name, weight, height, genus, types, abilities, fte, varieti
 
 		return (
 			<Dialog isOpen={modal} onDismiss={closeModal} aria-label='Ability Information' >
-				<div className='bg-white w-full leading-relaxed text-center md:py-8 md:px-12 rounded'>
+				<div className='bg-white w-full leading-loose text-center md:py-8 md:px-12 rounded'>
 					{abilityDesc ?
 						<div>
 							<h1 className='capitalize text-2xl text-gray-800'>{abilityDesc.name}</h1>
-							<p className='flex-1 my-6 text-gray-700'>{abilityDesc.desc}</p>
+							<p className='text-xs md:text-base my-6 text-gray-600'>{abilityDesc.desc}</p>
 							<span className='bg-red-500 rounded px-3 py-2 text-white hover:bg-red-600 cursor-pointer' onClick={closeModal}>Close</span>
 						</div>
 					: <Loader />}
